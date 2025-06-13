@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+eframe = "0.31.1"
+nalgebra = "0.33.2"
+libc = "0.2"
+
+[build-dependencies]
+cc = "1.0"
