@@ -15,6 +15,7 @@ export const Home = (): React.JSX.Element => {
     })
   }, [])
 
+  //TODO. Move options to file.
   const particlesOptions = useMemo<ISourceOptions>(
     () => ({
       fullScreen: { enable: false },
@@ -56,22 +57,34 @@ export const Home = (): React.JSX.Element => {
   )
 
   return (
-    <Box>
+    <Box
+      sx={{
+        width: '100%',
+        height: '100%'
+      }}
+    >
       <Typography variant="h4" gutterBottom color="text.primary">
         CRSolver
       </Typography>
       {ready && <Particles id="tsparticles" options={particlesOptions} />}
-      <Paper elevation={3}>
-        <Button variant="contained" sx={{ m: 1 }}>
+      <Paper
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}
+        elevation={3}
+      >
+        <Button variant="contained" sx={{ m: 1, flex: 1 }}>
           New Simulation
         </Button>
-        <Button variant="contained" sx={{ m: 1 }}>
+        <Button variant="contained" sx={{ m: 1, flex: 1 }}>
           Load Simulation
         </Button>
-        <Button variant="contained" sx={{ m: 1 }}>
+        <Button variant="contained" sx={{ m: 1, flex: 1 }}>
           Settings
         </Button>
-        <Button variant="contained" sx={{ m: 1 }}>
+        <Button variant="contained" sx={{ m: 1, flex: 1 }}>
           Exit
         </Button>
       </Paper>
