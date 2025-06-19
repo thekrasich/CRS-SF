@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e5a4de0-a961-47c2-ae0e-7c714d134d7e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/components/TopBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/components/TopBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/src/theme/DarkTheme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/theme/DarkTheme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/src/theme/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/src/theme/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750344460525</updated>
-      <workItem from="1750344462551" duration="10321000" />
+      <workItem from="1750344462551" duration="10384000" />
     </task>
     <servers />
   </component>
