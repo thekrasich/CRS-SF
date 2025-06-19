@@ -1,0 +1,4 @@
+{
+  "app_title": "Мій Electron-додаток",
+  "greeting": "Привіт, {{name}}!"
+}

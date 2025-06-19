@@ -20,21 +20,21 @@ export const TopBar = (): React.JSX.Element => (
   >
     <IconButton
       size="small"
-      sx={{ WebkitAppRegion: 'no-drag' }}
+      sx={{ WebkitAppRegion: 'no-drag', color: 'red' }}
       onClick={() => window.electron.ipcRenderer.send('window-close')}
     >
       <CloseIcon fontSize="small" />
     </IconButton>
     <IconButton
       size="small"
-      sx={{ WebkitAppRegion: 'no-drag' }}
+      sx={{ WebkitAppRegion: 'no-drag', color: 'yellow' }}
       onClick={() => window.electron.ipcRenderer.send('window-minimize')}
     >
       <MinimizeIcon fontSize="small" />
     </IconButton>
     <IconButton
       size="small"
-      sx={{ WebkitAppRegion: 'no-drag' }}
+      sx={{ WebkitAppRegion: 'no-drag', color: 'lawngreen' }}
       onClick={() => window.electron.ipcRenderer.send('window-maximize')}
     >
       <CropSquareIcon fontSize="small" />

@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { themes, ThemeName } from './theme'
 import App from './App'
+import './i18n'
 
 export function Root(): ReactNode {
   const [mode, setMode] = useState<ThemeName>('dark')
