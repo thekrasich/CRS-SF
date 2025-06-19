@@ -1,12 +1,15 @@
-import {TopBar} from "@renderer/components/TopBar";
+import { Route, Routes } from 'react-router-dom'
+import { Home } from '@renderer/pages/Home'
+import { TopBar } from '@renderer/components/TopBar'
 
 function App(): React.JSX.Element {
-
   return (
-    <div>
-      <TopBar/>
-
-    </div>
+    <>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   )
 }
 

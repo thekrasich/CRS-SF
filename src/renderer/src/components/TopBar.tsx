@@ -1,30 +1,43 @@
-import {Box, Button, CssBaseline, Paper, useTheme} from "@mui/material";
+import { IconButton, Paper } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import MinimizeIcon from '@mui/icons-material/Minimize'
+import CropSquareIcon from '@mui/icons-material/CropSquare'
 
-export const TopBar = (): React.JSX.Element => {
-  const theme = useTheme();
-
-  // WebkitAppRegion is only valid for Electron
-  return (
-    <Paper
-      elevation={4}
-      square
-      sx={{p: 0}}
+export const TopBar = (): React.JSX.Element => (
+  <Paper
+    square
+    sx={{
+      top: 0,
+      left: 0,
+      right: 0,
+      height: '2rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      WebkitAppRegion: 'drag',
+      zIndex: 1000
+    }}
+  >
+    <IconButton
+      size="small"
+      sx={{ WebkitAppRegion: 'no-drag' }}
+      onClick={() => window.electron.ipcRenderer.send('window-close')}
     >
-      <Box
-        component='header'
-
-        sx={{
-          WebkitAppRegion: 'drag',
-          width: '100%',
-          height: '2rem',
-          bgcolor: 'red'
-        }}
-      >
-        <CssBaseline/>
-        <Button>x</Button>
-        <Button>o</Button>
-        <Button>-</Button>
-      </Box>
-    </Paper>
-  )
-}
+      <CloseIcon fontSize="small" />
+    </IconButton>
+    <IconButton
+      size="small"
+      sx={{ WebkitAppRegion: 'no-drag' }}
+      onClick={() => window.electron.ipcRenderer.send('window-minimize')}
+    >
+      <MinimizeIcon fontSize="small" />
+    </IconButton>
+    <IconButton
+      size="small"
+      sx={{ WebkitAppRegion: 'no-drag' }}
+      onClick={() => window.electron.ipcRenderer.send('window-maximize')}
+    >
+      <CropSquareIcon fontSize="small" />
+    </IconButton>
+  </Paper>
+)

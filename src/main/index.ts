@@ -6,10 +6,11 @@ import icon from '../../resources/icon.png?asset'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width: 1200,
+    height: 770,
     show: false,
     frame: false,
+    thickFrame: true,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
@@ -18,7 +19,7 @@ function createWindow(): void {
     }
   })
 
-  mainWindow.setAlwaysOnTop(true, "normal");
+  mainWindow.setAlwaysOnTop(true, 'normal')
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
@@ -28,6 +29,12 @@ function createWindow(): void {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
+
+  ipcMain.on('window-minimize', () => mainWindow.minimize())
+  ipcMain.on('window-maximize', () => {
+    mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()
+  })
+  ipcMain.on('window-close', () => mainWindow.close())
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
