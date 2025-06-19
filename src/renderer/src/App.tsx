@@ -1,8 +1,11 @@
+import {TopBar} from "@renderer/components/TopBar";
+
 function App(): React.JSX.Element {
 
   return (
     <div>
-      <p></p>
+      <TopBar/>
+
     </div>
   )
 }
