@@ -10,7 +10,9 @@ export const ExitDialog = ({
   const handleNoClick = (): void => {
     onClose()
   }
-  const handleYesClick = (): void => {}
+  const handleYesClick = (): void => {
+    window.electron.ipcRenderer.send('window-close')
+  }
 
   return (
     <Dialog open={isDialogOpened}>

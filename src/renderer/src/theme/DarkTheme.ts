@@ -46,7 +46,7 @@ export const darkTheme: Theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 6
+          borderRadius: 0
         }
       }
     }
