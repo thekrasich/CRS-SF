@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Home } from '@renderer/pages/Home'
-import { TopBar } from '@renderer/components/TopBar'
+import { TopBar } from '@renderer/components/top-bar/TopBar'
 
 function App(): React.JSX.Element {
   return (

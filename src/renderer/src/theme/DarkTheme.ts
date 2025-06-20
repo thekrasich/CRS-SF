@@ -1,4 +1,3 @@
-// src/theme/DarkTheme.ts
 import { createTheme, Theme } from '@mui/material/styles'
 
 export const darkTheme: Theme = createTheme({
