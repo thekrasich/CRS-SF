@@ -3,12 +3,13 @@ import { useTranslation } from "react-i18next";
 import i18n from "@renderer/i18n";
 import { useState } from "react";
 import { ApplicationSettings } from '../../../shared/settings/ApplicationSettings';
+import { AVAILABLE_COLOR_THEMES } from "../../../shared/constants";
+import { useNavigate } from "react-router-dom";
 
 export const Settings = (): React.JSX.Element => {
   const { t } = useTranslation();
+  const navigate =useNavigate();
   const [selectedLanguage, setSelectedLanguage] = useState<string>(ApplicationSettings.getInstance().currentLanguage);
-
-  const test = []
 
   const languages = (i18n.options.supportedLngs as string[] || [])
     .filter(l => l !== 'cimode' && true);
@@ -23,6 +24,10 @@ export const Settings = (): React.JSX.Element => {
     setSelectedLanguage(option.code);
     ApplicationSettings.getInstance().currentLanguage = option.code;
     void i18n.changeLanguage(option.code);
+  }
+
+  const handleCancelClick = () => {
+    navigate('/')
   }
 
   return (
@@ -51,16 +56,17 @@ export const Settings = (): React.JSX.Element => {
           options={langOptions}
           value={langOptions.find((o) => o.code === selectedLanguage) ?? null}
           onChange={handleLanguageChange}
-          renderInput={(params) => <TextField {...params} label="Current Language" />}
+          renderInput={(params) => <TextField {...params} label="" />}
         />
         <Typography sx={{ mt: 2 }}>{t('application_settings.color_theme_title', 'Color Theme')}: </Typography>
         <Autocomplete
           disablePortal
-          options={test}
-          renderInput={(params) => <TextField {...params} label="Current Theme" />}
+          value={'dark'}
+          options={AVAILABLE_COLOR_THEMES}
+          renderInput={(params) => <TextField {...params} label="" />}
         />
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3, gap: 1 }}>
-          <Button>{t('application_settings.cancel_button', 'Cancel')}</Button>
+          <Button onClick={handleCancelClick}>{t('application_settings.cancel_button', 'Cancel')}</Button>
           <Button variant="contained">{t('application_settings.save_button', 'Save')}</Button>
         </Box>
       </Paper>

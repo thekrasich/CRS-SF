@@ -15,7 +15,7 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
   }
 
   const handleLoadSimulationClick = (): void => {
-    alert('In development')
+    navigate('/saved-simulations')
   }
 
   const handleDocumentationClick = (): void => {
