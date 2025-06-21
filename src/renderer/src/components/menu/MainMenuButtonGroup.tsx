@@ -1,8 +1,11 @@
 import { Button, Paper } from '@mui/material'
 import { ExitDialog } from '@renderer/components/menu/ExitDialog'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 export const MainMenuButtonGroup = (): React.JSX.Element => {
+  const navigate = useNavigate();
+
   const [isExitDialogOpen, setIsExitDialogOpen] = useState(false)
 
   const handleNewSimulationClick = (): void => {
@@ -14,11 +17,11 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
   }
 
   const handleDocumentationClick = (): void => {
-    alert('In development')
+    window.electron.ipcRenderer.send('open-external')
   }
 
   const handleSettingsClick = (): void => {
-    alert('In development')
+    navigate('/settings')
   }
 
   const handleExitClick = (): void => {

@@ -36,6 +36,11 @@ function createWindow(): void {
   })
   ipcMain.on('window-close', () => mainWindow.close())
 
+  //TODO. Create Documentation.
+  ipcMain.on('open-external', () => {
+    return shell.openExternal('https://google.com');
+  });
+
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
