@@ -11,7 +11,7 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
   const [isExitDialogOpen, setIsExitDialogOpen] = useState(false)
 
   const handleNewSimulationClick = (): void => {
-    alert('In development')
+    navigate('/new-simulation')
   }
 
   const handleLoadSimulationClick = (): void => {
