@@ -1,4 +1,29 @@
 {
-  "app_title": "Мій Electron-додаток",
-  "greeting": "Привіт, {{name}}!"
+  "app_title": "cr_solver",
+  "languages": {
+    "en": "Англійська",
+    "uk": "Українська"
+  },
+  "home": {
+    "title": "CRSolver",
+    "new_simulation_button": "Нова Симуляція",
+    "load_simulation_button": "Завантажити Симуляцію",
+    "documentation_button": "Документація",
+    "settings_button": "Налаштування",
+    "exit_button": "Вийти"
+  },
+  "exit_dialog": {
+    "title": "Вихід із Аплікації",
+    "text": "Бажаєте вийти із Аплікації?",
+    "yes_button": "Так",
+    "no_button": "Ні"
+  },
+
+
+  "settings": {
+    "title": "Application Test",
+    "language": "Мова",
+    "cancel": "Cancel",
+    "save": "Save"
+  }
 }

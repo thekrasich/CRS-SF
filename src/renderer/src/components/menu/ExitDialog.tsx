@@ -1,4 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import { useTranslation } from "react-i18next";
 
 export const ExitDialog = ({
   isDialogOpened,
@@ -7,6 +8,8 @@ export const ExitDialog = ({
   isDialogOpened: boolean
   onClose: () => void
 }): React.JSX.Element => {
+  const { t } = useTranslation()
+
   const handleNoClick = (): void => {
     onClose()
   }
@@ -16,14 +19,14 @@ export const ExitDialog = ({
 
   return (
     <Dialog open={isDialogOpened}>
-      <DialogTitle>Application Exit</DialogTitle>
-      <DialogContent>Do you wand to exit the application?</DialogContent>
+      <DialogTitle> {t('exit_dialog.title', 'Application Exit')}</DialogTitle>
+      <DialogContent> {t('exit_dialog.text', 'Do you wand to exit the application?')}</DialogContent>
       <DialogActions>
         <Button variant="contained" onClick={() => handleYesClick()}>
-          Yes
+          {t('exit_dialog.yes_button','Yes')}
         </Button>
         <Button variant="contained" onClick={() => handleNoClick()}>
-          No
+          {t('exit_dialog.no_button','No')}
         </Button>
       </DialogActions>
     </Dialog>

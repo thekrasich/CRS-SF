@@ -1,10 +1,12 @@
 import { Button, Paper } from '@mui/material'
 import { ExitDialog } from '@renderer/components/menu/ExitDialog'
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const MainMenuButtonGroup = (): React.JSX.Element => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const [isExitDialogOpen, setIsExitDialogOpen] = useState(false)
 
@@ -38,44 +40,45 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
       elevation={3}
     >
       <Button
-        size="large"
+        size="medium"
         variant="contained"
         sx={{ m: 1, flex: 1 }}
         onClick={() => handleNewSimulationClick()}
       >
-        New Simulation
+        {t('home.new_simulation_button', 'New Simulation')}
       </Button>
       <Button
-        size="large"
+        size="medium"
         variant="contained"
         sx={{ m: 1, flex: 1 }}
         onClick={() => handleLoadSimulationClick()}
       >
-        Load Simulation
+        {t('home.load_simulation_button', 'Load Simulation')}
+
       </Button>
       <Button
-        size="large"
+        size="medium"
         variant="contained"
         sx={{ m: 1, flex: 1 }}
         onClick={() => handleDocumentationClick()}
       >
-        Documentation
+        {t('home.documentation_button', 'Documentation')}
       </Button>
       <Button
-        size="large"
+        size="medium"
         variant="contained"
         sx={{ m: 1, flex: 1 }}
         onClick={() => handleSettingsClick()}
       >
-        Settings
+        {t('home.settings_button', 'Settings')}
       </Button>
       <Button
-        size="large"
+        size="medium"
         variant="contained"
         sx={{ m: 1, flex: 1 }}
         onClick={() => handleExitClick()}
       >
-        Exit
+        {t('home.exit_button', 'Exit')}
       </Button>
       <ExitDialog isDialogOpened={isExitDialogOpen} onClose={handleExitClick} />
     </Paper>
