@@ -19,11 +19,11 @@ export class ApplicationSettings {
     return this._instance;
   }
 
-  public get getCurrentLanguage(): Language {
+  public get currentLanguage(): Language {
     return this._currentLanguage
   }
 
-  public set setCurrentLanguage(value: Language | string) {
+  public set currentLanguage(value: Language | string) {
     if (typeof value === 'string') {
       this._currentLanguage = Language[value.toLowerCase()]
     } else {
@@ -31,11 +31,11 @@ export class ApplicationSettings {
     }
   }
 
-  public get getCurrentColorTheme(): ColorTheme {
+  public get currentColorTheme(): ColorTheme {
     return this._currentColorTheme
   }
 
-  public set getCurrentColorTheme(value: ColorTheme) {
+  public set currentColorTheme(value: ColorTheme) {
     if (typeof value === 'string') {
       this._currentColorTheme = ColorTheme[value]
     } else {

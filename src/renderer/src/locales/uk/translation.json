@@ -18,12 +18,11 @@
     "yes_button": "Так",
     "no_button": "Ні"
   },
-
-
-  "settings": {
-    "title": "Application Test",
-    "language": "Мова",
-    "cancel": "Cancel",
-    "save": "Save"
+  "application_settings": {
+    "title": "Налаштування Аплікації",
+    "language_title": "Мова",
+    "color_theme_title": "Кольорова тема",
+    "save_button": "Зберегти",
+    "cancel_button": "Скасувати"
   }
 }

@@ -6,7 +6,7 @@ import { ApplicationSettings } from '../../../shared/settings/ApplicationSetting
 
 export const Settings = (): React.JSX.Element => {
   const { t } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(ApplicationSettings.getInstance().getCurrentLanguage);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(ApplicationSettings.getInstance().currentLanguage);
 
   const test = []
 
@@ -21,6 +21,7 @@ export const Settings = (): React.JSX.Element => {
   const handleLanguageChange = (_: any, option: { code: string; label: string } | null): void => {
     if (!option) return;
     setSelectedLanguage(option.code);
+    ApplicationSettings.getInstance().currentLanguage = option.code;
     void i18n.changeLanguage(option.code);
   }
 
@@ -32,37 +33,37 @@ export const Settings = (): React.JSX.Element => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        p: 12,
+        p: 12
       }}
     >
       <Paper
         elevation={4}
         sx={{
-          p: 4,
+          p: 4
         }}
       >
         <Typography variant="h4" gutterBottom color="text.primary">
-          {t('settings:title', 'Application Settings')}
+          {t('application_settings.title', 'Application Settings')}
         </Typography>
-        <Typography>Language: </Typography>
+        <Typography>{t('application_settings.language_title', 'Language')}: </Typography>
         <Autocomplete
           disablePortal
           options={langOptions}
-          value={langOptions.find(o => o.code === selectedLanguage) ?? null}
+          value={langOptions.find((o) => o.code === selectedLanguage) ?? null}
           onChange={handleLanguageChange}
           renderInput={(params) => <TextField {...params} label="Current Language" />}
         />
-        <Typography sx={{ mt: 2 }}>Color Theme: </Typography>
+        <Typography sx={{ mt: 2 }}>{t('application_settings.color_theme_title', 'Color Theme')}: </Typography>
         <Autocomplete
           disablePortal
           options={test}
           renderInput={(params) => <TextField {...params} label="Current Theme" />}
         />
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3, gap: 1 }}>
-          <Button>{t('settings:cancel', 'Cancel')}</Button>
-          <Button variant="contained">Save</Button>
+          <Button>{t('application_settings.cancel_button', 'Cancel')}</Button>
+          <Button variant="contained">{t('application_settings.save_button', 'Save')}</Button>
         </Box>
       </Paper>
     </Box>
-  );
+  )
 }
