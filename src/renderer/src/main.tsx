@@ -8,7 +8,7 @@ import App from './App'
 import './i18n'
 
 export function Root(): ReactNode {
-  const [mode, setMode] = useState<ThemeName>('dark')
+  const [mode] = useState<ThemeName>('dark')
 
   const theme = useMemo(() => themes[mode], [mode])
 

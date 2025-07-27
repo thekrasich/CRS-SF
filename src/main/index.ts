@@ -2,6 +2,8 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+// @ts-ignore
+import { SimulationService } from "../shared/service/SimulationService";
 
 function createWindow(): void {
   // Create the browser window.
@@ -30,16 +32,27 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
+  //Window
   ipcMain.on('window-minimize', () => mainWindow.minimize())
   ipcMain.on('window-maximize', () => {
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()
   })
   ipcMain.on('window-close', () => mainWindow.close())
 
+  //Simulation events
+  ipcMain.handle('simulation-get', () => {
+    return SimulationService.getInstance();
+  });
+
   //TODO. Create Documentation.
   ipcMain.on('open-external', () => {
     return shell.openExternal('https://google.com');
   });
+
+  //Logger
+  ipcMain.on('log-message', (_event, message) => {
+    console.log(message);
+  })
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.

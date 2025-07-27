@@ -1,5 +1,6 @@
 import { Box, Button, Step, StepLabel, Stepper, Typography } from "@mui/material";
 import { useState } from "react";
+import { ModelTypeChooser } from "@renderer/components/simulation-components/ModelTypeChooser";
 
 export const NewSimulation = (): React.JSX.Element => {
   const [activeStep, setActiveStep] = useState(0);
@@ -44,13 +45,7 @@ export const NewSimulation = (): React.JSX.Element => {
         }}
       >
         {activeStep === 0 && (
-          <>
-            <Typography variant="h5">Choose type of model</Typography>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <Button variant="contained">Two Dimensional</Button>
-              <Button variant="contained">Three Dimensional</Button>
-            </Box>
-          </>
+          <ModelTypeChooser/>
         )}
 
         {activeStep === 1 && (

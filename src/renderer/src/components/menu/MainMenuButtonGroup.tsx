@@ -3,6 +3,7 @@ import { ExitDialog } from '@renderer/components/menu/ExitDialog'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SimulationService } from "../../../../shared/service/SimulationService";
 
 export const MainMenuButtonGroup = (): React.JSX.Element => {
   const navigate = useNavigate()
@@ -11,6 +12,7 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
   const [isExitDialogOpen, setIsExitDialogOpen] = useState(false)
 
   const handleNewSimulationClick = (): void => {
+    SimulationService.getInstance().reset();
     navigate('/new-simulation')
   }
 
