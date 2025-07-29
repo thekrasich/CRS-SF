@@ -14,14 +14,9 @@ export class SimulationService {
   private static _instance: SimulationService
 
   // DATA TYPES
-  // math models
   public modelType: ModelType = ModelType.None
-
-  //Domain
   public domainData: object | null = null // Holes + Areas
   public borderConditions: object | null = null
-
-  //Mesh
   public meshData: object | null = null
   public meshOptions: IMeshingOptions | null = null
 
@@ -50,6 +45,7 @@ export class SimulationService {
   }
 
   public setModelType(newModelType: ModelType): void {
+    this.modelType = newModelType;
     switch (newModelType) {
       case ModelType.OneDimensional:
         this.setOneDimensionalServices()
@@ -86,6 +82,10 @@ export class SimulationService {
     this.domainData = null
     this.femService = null
     this.simulationService = null
+  }
+
+  public saveState(): void {
+
   }
 
   public toString(): string {

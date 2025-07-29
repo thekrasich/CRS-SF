@@ -39,11 +39,6 @@ function createWindow(): void {
   })
   ipcMain.on('window-close', () => mainWindow.close())
 
-  //Simulation events
-  ipcMain.handle('simulation-get', () => {
-    return SimulationService.getInstance();
-  });
-
   //TODO. Create Documentation.
   ipcMain.on('open-external', () => {
     return shell.openExternal('https://google.com');

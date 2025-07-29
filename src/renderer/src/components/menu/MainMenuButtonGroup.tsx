@@ -12,7 +12,7 @@ export const MainMenuButtonGroup = (): React.JSX.Element => {
   const [isExitDialogOpen, setIsExitDialogOpen] = useState(false)
 
   const handleNewSimulationClick = (): void => {
-    SimulationService.getInstance().reset();
+    SimulationService.getInstance().reset()
     navigate('/new-simulation')
   }
 
