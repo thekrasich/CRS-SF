@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import { useState } from 'react'
 import { ModelType } from '../../../../shared/enums'
-import { SimulationService } from "../../../../shared/service/SimulationService";
 
 export const ModelTypeChooser = (): React.JSX.Element => {
   const [selectedModelType, setSelectedModelType] = useState(ModelType.None)
@@ -26,7 +25,9 @@ export const ModelTypeChooser = (): React.JSX.Element => {
 
     setSelectedModelType(newType);
     console.log('ModelType was set to:', newType);
-    SimulationService.getInstance().setModelType(newType);
+
+    //TODO. Replace
+    // SimulationService.getInstance().setModelType(newType);
   }
 
   return (
